@@ -1,0 +1,33 @@
+version: 2
+
+sources:
+  - name: source                                 # name after the upstream system
+    description: "Raw sales-system tables (DBTPRO_SNOWFLAKE.SOURCE)"
+    # Omit `database:` if the source always lives in the profile's database,
+    # or make it env-driven:
+    database: "{{ env_var('SOURCE_DATABASE', 'dbtpro_snowflake') }}"
+    schema: source
+    # Uncomment once the tables have a loaded_at column (none do today):
+    # freshness:
+    #   warn_after: {count: 24, period: hour}
+    #   error_after: {count: 48, period: hour}
+    tables:
+      - name: fact_sales
+        description: "One row per sales transaction"
+        columns:
+          - name: sales_id
+            tests: [not_null, unique]
+      - name: fact_returns
+        description: "One row per returned item"
+      - name: dim_customer
+        description: "Customer master data"
+        columns:
+          - name: customer_sk
+            tests: [not_null, unique]
+      - name: dim_product
+        description: "Product master data"
+      - name: dim_store
+        description: "Store master data"
+      - name: dim_date
+        description: "dim date data"
+        
