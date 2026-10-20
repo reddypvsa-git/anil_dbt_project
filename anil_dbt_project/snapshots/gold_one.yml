@@ -1,0 +1,14 @@
+snapshots:
+  - name: gold_one
+    description: "This snapshot captures the final state of the sales data."
+    relation: ref('final')
+    config:
+      schema: snapshots
+      unique_key: sales_id
+      strategy: check
+      check_cols:
+        - sales_id
+        - product_name
+        - category  
+      invalidate_hard_deletes: true
+      dbt_valid_to_current: "to_date('9999-12-31')" 

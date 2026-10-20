@@ -1,0 +1,1 @@
+{% set var_name = 'anil' %} {{var_name}}
