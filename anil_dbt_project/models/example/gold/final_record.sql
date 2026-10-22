@@ -1,8 +1,8 @@
 {{
     config(
         materialized = 'incremental',
-        database = 'dbtpro_snowflake',
-        schema = 'GOLD',
+        database =  target.database ,
+        schema = 'source_gold',
 
         unique_key = ['sales_ID','eff_start_date','DBT_SCD_ID'],
 

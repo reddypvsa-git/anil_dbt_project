@@ -69,12 +69,12 @@ select
     s.payment_method
 from 
     sales s
-join 
+ left join 
     PRODUCT p
 on s.product_sk = p.product_sk
-join 
+left join 
     CUSTOMER c
 on s.customer_sk = c.customer_sk
-join 
+left join 
     date_bro d
 on s.date_sk = d.date_sk

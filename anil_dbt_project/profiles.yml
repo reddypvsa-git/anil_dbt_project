@@ -10,6 +10,16 @@ anil_dbt_project:
       type: snowflake
       user: ANILSAPTM131
       warehouse: dbt_project
+    prod:
+      account: XSRZXNV-SP88255
+      database: DBTPRO_SNOW 
+      password: Anilkumarsaptm@131
+      role: accountadmin
+      schema: SOURCE
+      threads: 1
+      type: snowflake
+      user: ANILSAPTM131
+      warehouse: dbt_project
   target: dev
 dbt_snowflake_project:
   outputs:

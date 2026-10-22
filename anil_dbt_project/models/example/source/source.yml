@@ -5,7 +5,7 @@ sources:
     description: "Raw sales-system tables (DBTPRO_SNOWFLAKE.SOURCE)"
     # Omit `database:` if the source always lives in the profile's database,
     # or make it env-driven:
-    database: "{{ env_var('SOURCE_DATABASE', 'dbtpro_snowflake') }}"
+    database: "{{ target.database }}"
     schema: source
     # Uncomment once the tables have a loaded_at column (none do today):
     # freshness:

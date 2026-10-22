@@ -4,6 +4,7 @@ snapshots:
     relation: ref('final')
     config:
       schema: snapshots
+      database: "{{ target.database }}"
       unique_key: sales_id
       strategy: check
       check_cols:
